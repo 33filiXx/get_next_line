@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wel-mjiy <wel-mjiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 17:20:23 by wel-mjiy          #+#    #+#             */
-/*   Updated: 2024/12/11 21:48:17 by wel-mjiy         ###   ########.fr       */
+/*   Created: 2024/12/11 21:45:55 by wel-mjiy          #+#    #+#             */
+/*   Updated: 2024/12/11 22:33:45 by wel-mjiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_strcher(char *str, char sep)
 {
@@ -88,9 +88,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		s2_lenght;
 
 	if (!s1)
-		s1 = ft_calloc(1, 1);
+		s1 = calloc(1, 1);
 	if (!s2)
-		s2 = ft_calloc(1, 1);
+		s2 = calloc(1, 1);
 	s1_lenght = ft_strlen(s1);
 	s2_lenght = ft_strlen(s2);
 	data = calloc((s1_lenght + s2_lenght + 1), sizeof(char));
