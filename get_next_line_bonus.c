@@ -112,7 +112,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = NULL;
 	buffer = ft_read(fd, buffer);
-	if (!buffer)
+	if (!buffer[fd])
 		return (NULL);
 	line = get_line(buffer);
 	if (!line)
