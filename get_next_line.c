@@ -6,7 +6,7 @@
 /*   By: wel-mjiy <wel-mjiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 16:48:42 by wel-mjiy          #+#    #+#             */
-/*   Updated: 2024/12/11 22:29:47 by wel-mjiy         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:07:35 by wel-mjiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ char	*ft_read(int fd, char *nbuffer)
 	set_data = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!set_data)
 		return (NULL);
-	byteread = 1;
 	while (!ft_strcher(nbuffer, '\n'))
 	{
 		byteread = read(fd, set_data, BUFFER_SIZE);

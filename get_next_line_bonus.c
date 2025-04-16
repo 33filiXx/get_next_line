@@ -6,7 +6,7 @@
 /*   By: wel-mjiy <wel-mjiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 21:46:52 by wel-mjiy          #+#    #+#             */
-/*   Updated: 2024/12/11 22:30:18 by wel-mjiy         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:07:46 by wel-mjiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ char	*ft_read(int fd, char *nbuffer)
 	set_data = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!set_data)
 		return (NULL);
-	byteread = 1;
 	while (!ft_strcher(nbuffer, '\n'))
 	{
 		byteread = read(fd, set_data, BUFFER_SIZE);
@@ -108,24 +107,24 @@ char	*get_next_line(int fd)
 	static char	*buffer[1024];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
 		return (NULL);
 	line = NULL;
-	buffer = ft_read(fd, buffer);
-	if (!buffer[fd])
+	buffer[fd] = ft_read(fd, buffer[fd]);
+	if (!buffer)
 		return (NULL);
-	line = get_line(buffer);
+	line = get_line(buffer[fd]);
 	if (!line)
 	{
-		free(buffer);
-		buffer = NULL;
+		free(buffer[fd]);
+		buffer[fd] = NULL;
 		return (NULL);
 	}
-	update_buffer(&buffer);
-	if (*buffer == '\0' || !buffer)
+	update_buffer(&buffer[fd]);
+	if (*buffer[fd] == '\0' || !buffer[fd])
 	{
-		free(buffer);
-		buffer = NULL;
+		free(buffer[fd]);
+		buffer[fd] = NULL;
 	}
 	return (line);
 }

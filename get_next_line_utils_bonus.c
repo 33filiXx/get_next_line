@@ -6,7 +6,7 @@
 /*   By: wel-mjiy <wel-mjiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 21:45:55 by wel-mjiy          #+#    #+#             */
-/*   Updated: 2024/12/11 22:33:45 by wel-mjiy         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:03:44 by wel-mjiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,12 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		s2_lenght;
 
 	if (!s1)
-		s1 = calloc(1, 1);
+		s1 = ft_calloc(1, 1);
 	if (!s2)
-		s2 = calloc(1, 1);
+		s2 = ft_calloc(1, 1);
 	s1_lenght = ft_strlen(s1);
 	s2_lenght = ft_strlen(s2);
-	data = calloc((s1_lenght + s2_lenght + 1), sizeof(char));
+	data = ft_calloc((s1_lenght + s2_lenght + 1), sizeof(char));
 	if (!data)
 		return (NULL);
 	ft_strcat(s1, s2, &data);
